@@ -14,8 +14,8 @@
       fetchPokemon() {
         store.isLoading = true;
         axios.get(endpoint).then(res => {
-
         store.pokemons = res.data.docs.map(pokemon => {
+          console.log(res.data)
           return {
             number: pokemon.number,
             imageUrl: pokemon.imageUrl,
@@ -25,15 +25,19 @@
             id: pokemon._id
 
           }
+
+          
         })
       }).then(() => {
         store.isLoading = false;
       })
+      
       },
 
     },
     created() {
       this.fetchPokemon()
+      
     }
   }
 </script>
@@ -51,4 +55,4 @@
 
 <!-- cose da fare:
 fare un filtro per cercare i pokemon, in base al nome, al tipo, e numero;
- fare che quando clicco load more carica altri pokemon-->
+ fare che quando clicco load more carica altri pokemon, usare la paginazione, pagina attuale e successiva-->
