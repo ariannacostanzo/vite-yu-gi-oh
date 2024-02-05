@@ -13,9 +13,7 @@
     methods: {
       fetchPokemon() {
         axios.get(endpoint).then(res => {
-        // store.pokemons = res.data.docs
-
-        // console.log(store.pokemons)
+          
         store.pokemons = res.data.docs.map(pokemon => {
           return {
             number: pokemon.number,
