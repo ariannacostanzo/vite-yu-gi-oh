@@ -1,11 +1,13 @@
 <script>
-import {store} from '../assets/data/store.js'
+import PokemonCard from '../components/PokemonCard.vue'
   export default {
     name: 'AppMain',
     data() {
       return {
-        store,
       }
+    },
+    components: {
+      PokemonCard
     }
   }
 </script>
@@ -19,15 +21,9 @@ import {store} from '../assets/data/store.js'
         <h1>Pokédex</h1>
 
         <div class="pokemon-cards-container">
+
+          <PokemonCard/>
           
-          <!-- da spostare -->
-          <div class="pokemon-card">
-            <img src="../assets/images/body_bg.png" alt="">
-            <p>numero</p>
-            <p>nome</p>
-            <span>tipo 1</span>
-            <span>tipo 2</span>
-          </div>
         </div>
 
       </div>
@@ -55,12 +51,18 @@ import {store} from '../assets/data/store.js'
     border-radius: 10px;
     max-width: 1000px;
 
+
     h1 {
       margin-bottom: 2rem;
     }
+
+
   }
 
-  // da spostare
+  .pokemon-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
 
 </style>
