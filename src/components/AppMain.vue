@@ -18,6 +18,7 @@ import PokemonCards from '../components/PokemonCards.vue'
       <div class="pokemon-container">
         <h1>Pokédex</h1>
         <div class="pokemon-cards-container">
+
           <PokemonCards/> 
         </div>
       </div>
@@ -38,7 +39,6 @@ import PokemonCards from '../components/PokemonCards.vue'
 
 
   .pokemon-container {
-    background-color: white;
     margin:  auto;
     padding: 2rem;
     border-radius: 10px;

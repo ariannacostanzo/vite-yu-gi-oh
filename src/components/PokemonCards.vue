@@ -36,17 +36,20 @@
     padding: 1.5rem .7rem;
     background-color: #f2f2f2;
     
+    
 
     .pokemon-img-container {
         width: 236.63px;
         height: 236.63px;
+        background-color: white;
+        border-radius: 10px;
 
     }
     .pokemon-img {
         width: 236.63px;
         height: 236.63px;
         border-radius: 10px;
-        object-fit: fill;
+        object-fit: contain;
     }
 
     .pokemon-info {
