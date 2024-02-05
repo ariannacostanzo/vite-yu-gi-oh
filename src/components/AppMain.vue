@@ -1,5 +1,6 @@
 <script>
-import PokemonCards from '../components/PokemonCards.vue'
+import PokemonCards from '../components/PokemonCards.vue';
+import LoadingButton from '../components/LoadingButton.vue';
 import {store} from '../assets/data/store.js'
   export default {
     name: 'AppMain',
@@ -9,7 +10,7 @@ import {store} from '../assets/data/store.js'
       }
     },
     components: {
-      PokemonCards
+      PokemonCards, LoadingButton
     }
   }
 </script>
@@ -23,13 +24,10 @@ import {store} from '../assets/data/store.js'
         <div v-if="store.isLoading" id="loader-container"><i class="fa-solid fa-circle-notch fa-spin fa-4x"></i></div>
 
         <div v-else class="pokemon-cards-container">
-
           <PokemonCards/> 
-          
         </div>
-        <div id="load-more-container">
-          <button v-if="!store.isLoading">Load more Pokémon</button>
-        </div>
+
+        <LoadingButton v-if="!store.isLoading"/>
       </div>
       
     </main>
@@ -73,22 +71,6 @@ import {store} from '../assets/data/store.js'
     background-color: #f2f2f2;
   }
 
-  #load-more-container {
-
-    text-align: center;
-    margin: 3rem 0;
-
-    button {
-    padding: 15px 30px;
-    margin: 0 auto;
-    border: 0;
-    border-radius: 10px;
-    background-color: #30a7d7;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  }
   
 
 

@@ -9,6 +9,8 @@
     box-sizing: border-box;
 }
 
+//Generics
+
 body {
     background-image: url(../images/body_bg.png);
     background-color: white;
@@ -16,6 +18,8 @@ body {
     
     
 }
+
+//utils
 
 .bgGrass {
     background: linear-gradient(to right, darken($Grass, 19%), $Grass);
