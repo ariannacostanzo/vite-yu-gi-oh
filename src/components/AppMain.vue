@@ -1,5 +1,5 @@
 <script>
-import PokemonCard from '../components/PokemonCard.vue'
+import PokemonCards from '../components/PokemonCards.vue'
   export default {
     name: 'AppMain',
     data() {
@@ -7,7 +7,7 @@ import PokemonCard from '../components/PokemonCard.vue'
       }
     },
     components: {
-      PokemonCard
+      PokemonCards
     }
   }
 </script>
@@ -15,20 +15,13 @@ import PokemonCard from '../components/PokemonCard.vue'
 <template>
     <main>
       
-
       <div class="pokemon-container">
-
         <h1>Pokédex</h1>
-
         <div class="pokemon-cards-container">
-
-          <PokemonCard/>
-          
+          <PokemonCards/> 
         </div>
-
       </div>
       
-
     </main>
 </template>
 
@@ -39,7 +32,7 @@ import PokemonCard from '../components/PokemonCard.vue'
   main {
     background-image: url(../assets/images/container_bg.png);
     background-color: white;
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -49,7 +42,7 @@ import PokemonCard from '../components/PokemonCard.vue'
     margin:  auto;
     padding: 2rem;
     border-radius: 10px;
-    max-width: 1000px;
+    max-width: 1100px;
 
 
     h1 {

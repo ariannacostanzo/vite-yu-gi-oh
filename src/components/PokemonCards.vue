@@ -1,19 +1,26 @@
 <script>
   import {store} from '../assets/data/store.js'
   export default {
-    name: ''
+    name: 'PokemonCards',
+    data() {
+        return {
+            store,
+        }
+    }
   }
 </script>
 
 <template>
-  <div class="pokemon-card">
 
-        <img src="../assets/images/body_bg.png" alt="">
+  <div v-for="pokemon in store.pokemons" class="pokemon-card">
+        <figure class="pokemon-img-container">
+            <img :src="pokemon.imageUrl" :alt="pokemon.name" class="pokemon-img">
+        </figure>
         <div class="pokemon-info">
-            <p class="pokemon-number">numero</p>
-            <h3 class="pokemon-name">nome</h3>
-            <span class="pokemon-type">tipo 1</span>
-            <span class="pokemon-type">tipo 2</span>
+            <p class="pokemon-number">N ° {{pokemon.number}}</p>
+            <h3 class="pokemon-name">{{ pokemon.name }}</h3>
+            <span class="pokemon-type">{{pokemon.type1}}</span>
+            <span v-if="pokemon.type2" class="pokemon-type">{{pokemon.type2}}</span>
         </div>
         
     </div>
@@ -26,10 +33,19 @@
     
     flex-basis: 25%;
     padding: 1.5rem .7rem;
+    background-color: #f2f2f2;
+    
 
-    img {
-        max-width: 100%;
+    .pokemon-img-container {
+        width: 236.63px;
+        height: 236.63px;
+
+    }
+    .pokemon-img {
+        width: 236.63px;
+        height: 236.63px;
         border-radius: 10px;
+        object-fit: fill;
     }
 
     .pokemon-info {
@@ -38,6 +54,8 @@
         .pokemon-number {
             color: $grey;
             text-transform: uppercase;
+            font-size: .9rem;
+            margin-top: .3rem;
         }
 
         .pokemon-name {
