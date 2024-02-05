@@ -1,20 +1,20 @@
 <script>
-  // import something from './components/';
+  import AppMain from './components/AppMain.vue';
   export default {
-    name: 'App'
+    name: 'App',
+    components: {
+      AppMain
+    }
   }
 </script>
 
 <template>
   <div class="body">
+    <AppMain/>
   </div>
 </template>
 
-<style scoped>
+<style>
 @import './assets/style/style.scss';
-
-  .body {
-    background-image: url(./assets/images/body_bg.png);
-  }
-  
+ 
 </style>
