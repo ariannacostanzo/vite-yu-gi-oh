@@ -12,6 +12,7 @@
     },
     methods: {
       fetchPokemon() {
+        store.isLoading = true;
         axios.get(endpoint).then(res => {
 
         store.pokemons = res.data.docs.map(pokemon => {
@@ -25,9 +26,8 @@
 
           }
         })
-
-        console.log(res.data.limit)
-
+      }).then(() => {
+        store.isLoading = false;
       })
       },
 
@@ -48,3 +48,7 @@
 @import './assets/style/style.scss';
  
 </style>
+
+<!-- cose da fare:
+fare un filtro per cercare i pokemon, in base al nome, al tipo, e numero;
+ fare che quando clicco load more carica altri pokemon-->
