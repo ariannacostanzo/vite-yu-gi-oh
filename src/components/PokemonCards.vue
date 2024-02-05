@@ -35,6 +35,12 @@
     flex-basis: 25%;
     padding: 1.5rem .7rem;
     background-color: #f2f2f2;
+    cursor: pointer;
+    transition: .2s ease;
+
+    &:hover {
+        translate: 0 -10px;
+    }
     
     
 
@@ -50,6 +56,8 @@
         height: 236.63px;
         border-radius: 10px;
         object-fit: contain;
+
+       
     }
 
     .pokemon-info {

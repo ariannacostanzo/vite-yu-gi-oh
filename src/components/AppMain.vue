@@ -17,9 +17,16 @@ import PokemonCards from '../components/PokemonCards.vue'
       
       <div class="pokemon-container">
         <h1>Pokédex</h1>
+
+        
+
         <div class="pokemon-cards-container">
 
           <PokemonCards/> 
+          
+        </div>
+        <div id="load-container">
+          <button>Load more Pokémon</button>
         </div>
       </div>
       
@@ -55,7 +62,26 @@ import PokemonCards from '../components/PokemonCards.vue'
   .pokemon-cards-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: #f2f2f2;
   }
+
+  #load-container {
+
+    text-align: center;
+    margin: 3rem 0;
+
+    button {
+    padding: 15px 30px;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 10px;
+    background-color: #30a7d7;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  }
+  
 
 
 </style>
