@@ -19,8 +19,8 @@
         <div class="pokemon-info">
             <p class="pokemon-number">N ° {{pokemon.number}}</p>
             <h3 class="pokemon-name">{{ pokemon.name }}</h3>
-            <span class="pokemon-type">{{pokemon.type1}}</span>
-            <span v-if="pokemon.type2" class="pokemon-type">{{pokemon.type2}}</span>
+            <span class="pokemon-type" :class="`bg${pokemon.type1}`">{{pokemon.type1}}</span>
+            <span v-if="pokemon.type2" class="pokemon-type" :class="`bg${pokemon.type2}`">{{pokemon.type2}}</span>
         </div>
         
     </div>
@@ -28,6 +28,7 @@
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/style/style.scss';
 @use '../assets/style/colors' as *;
   .pokemon-card {
     
@@ -66,7 +67,6 @@
         }
 
         .pokemon-type {
-            background-color: red;
             margin-right: 10px;
             padding: 2px 20px;
             font-size: .9rem;

@@ -1,4 +1,7 @@
+@import './colors';
+
 // reset 
+
 
 * {
     margin: 0;
@@ -13,4 +16,61 @@ body {
     
     
 }
+
+.bgGrass {
+    background: linear-gradient(to right, darken($Grass, 19%), $Grass);
+}
+
+.bgPoison {
+    background: linear-gradient(to right, darken($Poison, 19%), $Poison);
+}
+
+.bgFire {
+    background-color: $Fire;
+}
+
+.bgFlying {
+    background-color: $Flying;
+}
+
+.bgWater {
+    background-color: $Water;
+}
+
+.bgNormal {
+    background-color: $Normal;
+}
+
+.bgElectric {
+    background-color: $Electric;
+}
+
+.bgGround {
+    background-color: $Ground;
+}
+
+.bgBug {
+    background-color: $Bug;
+}
+
+.bgFairy {
+    background-color: $Fairy;
+}
+
+.bgFighting {
+    background-color: $Fighting;
+}
+
+.bgPsychic {
+    background-color: $Psychic;
+}
+
+.bgSteel {
+    background-color: $Steel;
+}
+
+.bgIce {
+    background-color: $Ice;
+}
+
 
