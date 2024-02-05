@@ -1,14 +1,20 @@
 <script>
   // import something from './components/';
   export default {
-    name: ''
+    name: 'App'
   }
 </script>
 
 <template>
-    <h1>ciao</h1>
+  <div class="body">
+  </div>
 </template>
 
 <style scoped>
-  /* style here */
+@import './assets/style/style.scss';
+
+  .body {
+    background-image: url(./assets/images/body_bg.png);
+  }
+  
 </style>
