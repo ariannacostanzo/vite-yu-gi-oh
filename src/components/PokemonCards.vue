@@ -71,6 +71,7 @@
             padding: 2px 20px;
             font-size: .9rem;
             border-radius: 6px;
+            color: white;
         }
 
     }
