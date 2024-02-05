@@ -1,12 +1,19 @@
 <script>
+import {store} from '../assets/data/store.js'
   export default {
-    name: 'AppMain'
+    name: 'AppMain',
+    data() {
+      return {
+        store,
+      }
+    }
   }
 </script>
 
 <template>
     <main>
       <h1>Pokédex</h1>
+      
     </main>
 </template>
 

@@ -1,9 +1,40 @@
 <script>
   import AppMain from './components/AppMain.vue';
+
+  const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
+  import axios from 'axios';
+  import {store} from './assets/data/store.js'
+
   export default {
     name: 'App',
     components: {
       AppMain
+    },
+    methods: {
+      fetchPokemon() {
+        axios.get(endpoint).then(res => {
+        // store.pokemons = res.data.docs
+
+        // console.log(store.pokemons)
+        store.pokemons = res.data.docs.map(pokemon => {
+          return {
+            number: pokemon.number,
+            imageUrl: pokemon.imageUrl,
+            name: pokemon.name,
+            type1: pokemon.type1,
+            type2: pokemon.type2,
+            id: pokemon._id
+
+          }
+        })
+
+        console.log(store.pokemons)
+      })
+      },
+
+    },
+    created() {
+      this.fetchPokemon()
     }
   }
 </script>
