@@ -6,11 +6,14 @@
 
 <template>
     <main>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi aliquam tempora eligendi odio velit vero soluta optio? Molestiae reprehenderit cumque ipsum laudantium numquam voluptate! Pariatur voluptatem nihil velit at nisi?
+      <h1>Pokédex</h1>
     </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '../assets/style/style.scss';
+
+
   main {
     background-image: url(../assets/images/container_bg.png);
     background-color: white;
@@ -19,4 +22,6 @@
     margin-top: 3rem;
     padding: 2rem;
   }
+
+
 </style>
