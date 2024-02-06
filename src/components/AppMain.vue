@@ -18,7 +18,8 @@ import {store} from '../assets/data/store.js'
       nextPage() {
         console.log('prossima pagina')
        
-      }
+      },
+      
     }
   }
 </script>

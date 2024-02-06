@@ -4,6 +4,12 @@
     name: 'MainHeader',
     components: {
         SelectType
+    },
+    emits: ['selected-type'],
+    methods: {
+        funzione() {
+        console.log('funziona')
+      }
     }
   }
 </script>
@@ -11,7 +17,7 @@
 <template>
     <div>
         <h1>Pokédex</h1>
-        <SelectType/>
+        <SelectType @type-selected="funzione" />
     </div>
 </template>
 

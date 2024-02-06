@@ -24,12 +24,13 @@
                 "Water"
             ]
         }
-    }
+    },
+    emits: ['type-selected']
   }
 </script>
 
 <template>
-  <select @change="console.log('funziona')">
+  <select @change="$emit('type-selected')">
     <option value="All">All</option>
     <option v-for="pokemonType in pokemonTypes" :value="pokemonType">{{ pokemonType }}</option>
   </select>
