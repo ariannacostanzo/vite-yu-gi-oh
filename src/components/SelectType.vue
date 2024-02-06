@@ -22,7 +22,8 @@
                 "Rock",
                 "Steel",
                 "Water"
-            ]
+            ],
+            typeSelected: 'All'
         }
     },
     emits: ['type-selected']
@@ -30,7 +31,7 @@
 </script>
 
 <template>
-  <select @change="$emit('type-selected')">
+  <select @change="$emit('type-selected', typeSelected)" v-model="typeSelected">
     <option value="All">All</option>
     <option v-for="pokemonType in pokemonTypes" :value="pokemonType">{{ pokemonType }}</option>
   </select>

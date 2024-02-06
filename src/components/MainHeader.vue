@@ -7,8 +7,8 @@
     },
     emits: ['selected-type'],
     methods: {
-        funzione() {
-        console.log('funziona')
+        funzione(pokemonType) {
+        console.log('funziona:' + pokemonType)
       }
     }
   }
