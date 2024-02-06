@@ -1,12 +1,13 @@
 <script>
   export default {
     name: 'LoadingButton',
+    emits: ['load-button-clicked']
   }
 </script>
 
 <template>
   <div id="load-more-container">
-        <button >Load more Pokémon</button>
+        <button @click="$emit('load-button-clicked')">Load more Pokémon</button>
     </div>
 </template>
 

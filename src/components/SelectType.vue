@@ -27,14 +27,7 @@
             typeSelected: 'All'
         }
     },
-    emits: ['type-selected'],
-    created() {
-        setTimeout(()=> {
-            console.log(store.pokemonTypes)
-            console.log(store.pokemonTypes[0])
-        }, 2000)
-       
-    }
+    emits: ['type-selected']
   }
 </script>
 

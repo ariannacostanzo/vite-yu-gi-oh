@@ -14,13 +14,7 @@ import {store} from '../assets/data/store.js'
     components: {
       PokemonCards, LoadingButton, LoadingBall, MainHeader
     },
-    methods: {
-      nextPage() {
-        console.log('prossima pagina')
-       
-      }
-    },
-    emits: ['type-selected']
+    emits: ['type-selected', 'load-button-clicked']
   }
 </script>
 
@@ -38,7 +32,7 @@ import {store} from '../assets/data/store.js'
           <PokemonCards/> 
         </div>
 
-        <LoadingButton v-if="!store.isLoading" @click="nextPage"/>
+        <LoadingButton v-if="!store.isLoading" @load-button-clicked="$emit('load-button-clicked')"/>
       </div>
       
     </main>

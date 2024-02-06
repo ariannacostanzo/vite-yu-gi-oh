@@ -51,8 +51,11 @@
       fetchTypes() {
         axios.get(basePokemonTypes).then(res => {
           store.pokemonTypes = res.data
-          console.log(store.pokemonTypes)
+          // console.log(store.pokemonTypes)
         })
+      },
+      loadMorePokemon() {
+        console.log('funziona')
       }
     },
     created() {
@@ -64,7 +67,7 @@
 
 <template>
   <div class="body">
-    <AppMain @type-selected="fetchPokemonType"/>
+    <AppMain @type-selected="fetchPokemonType" @load-button-clicked="loadMorePokemon"/>
   </div>
 </template>
 
