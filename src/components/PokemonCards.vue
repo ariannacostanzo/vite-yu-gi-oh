@@ -12,7 +12,7 @@
 
 <template>
 
-  <div v-for="pokemon in store.pokemons" class="pokemon-card">
+  <div v-for="pokemon in store.pokemons" :key="pokemon.id" class="pokemon-card">
         <figure class="pokemon-img-container">
             <img :src="pokemon.imageUrl" :alt="pokemon.name" class="pokemon-img">
         </figure>
