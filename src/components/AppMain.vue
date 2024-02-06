@@ -1,6 +1,7 @@
 <script>
 import PokemonCards from '../components/PokemonCards.vue';
 import LoadingButton from '../components/LoadingButton.vue';
+import LoadingBall from '../components/LoadingBall.vue';
 import {store} from '../assets/data/store.js'
   export default {
     name: 'AppMain',
@@ -10,7 +11,7 @@ import {store} from '../assets/data/store.js'
       }
     },
     components: {
-      PokemonCards, LoadingButton
+      PokemonCards, LoadingButton, LoadingBall
     },
     methods: {
       nextPage() {
@@ -27,7 +28,7 @@ import {store} from '../assets/data/store.js'
       <div class="pokemon-container">
         <h1>Pokédex</h1>
 
-        <div v-if="store.isLoading" id="loader-container"><i class="fa-solid fa-circle-notch fa-spin fa-4x"></i></div>
+        <LoadingBall v-if="store.isLoading" />
 
         <div v-else class="pokemon-cards-container">
           <PokemonCards/> 
@@ -50,12 +51,19 @@ import {store} from '../assets/data/store.js'
     margin: 0 auto;
   }
 
-  #loader-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    padding: 2rem 0;
-  }
+  // #loader-container {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;  
+  //   padding: 2rem 0;
+  //   font-size: 1.4rem;
+  //   font-weight: bold;
+
+  //   .loading-ball {
+  //     width: 100px;
+  //     margin-left: 20px;
+  //   }
+  // }
 
   .pokemon-container {
     margin:  auto;
