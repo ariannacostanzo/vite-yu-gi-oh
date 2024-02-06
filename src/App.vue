@@ -1,7 +1,7 @@
 <script>
   import AppMain from './components/AppMain.vue';
 
-  const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=16'
+  const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=8'
   import axios from 'axios';
   import {store} from './assets/data/store.js'
 
