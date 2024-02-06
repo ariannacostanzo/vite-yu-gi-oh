@@ -1,17 +1,17 @@
 <script>
   import AppMain from './components/AppMain.vue';
-
-  const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=8'
+  import MainHeader from './components/MainHeader.vue';
+  const baseEndpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=8'
   import axios from 'axios';
   import {store} from './assets/data/store.js'
 
   export default {
     name: 'App',
     components: {
-      AppMain
+      AppMain, MainHeader
     },
     methods: {
-      fetchPokemon() {
+      fetchPokemon(endpoint) {
         store.isLoading = true;
         axios.get(endpoint).then(res => {
         store.pokemons = res.data.docs.map(pokemon => {
@@ -28,7 +28,8 @@
         })
 
           store.pagination = res.data
-          console.log(store.pagination)
+          // console.log(store.pagination)
+          console.log(store.pokemons)
 
         }).then(() => {
           store.isLoading = false;
@@ -37,11 +38,16 @@
         },
       fetchPokemonType(pokemonType) {
         console.log('funziona:' + pokemonType)
+        const endpointType = `${baseEndpoint}&eq[type1]=${pokemonType}`
+        console.log(endpointType)
+        this.fetchPokemon(endpointType)
+
+
       }
 
     },
     created() {
-      this.fetchPokemon()
+      this.fetchPokemon(baseEndpoint)
     }
   }
 </script>

@@ -5,12 +5,7 @@
     components: {
         SelectType
     },
-    emits: ['type-selected'],
-    methods: {
-        getType(pokemonType) {
-            this.$emit('type-selected', pokemonType)
-        }
-    }
+    emits: ['type-selected']
     
   }
 </script>
@@ -18,7 +13,7 @@
 <template>
     <div>
         <h1>Pokédex</h1>
-        <SelectType @type-selected="getType" />
+        <SelectType @type-selected="$emit('type-selected', $event)" />
     </div>
 </template>
 
