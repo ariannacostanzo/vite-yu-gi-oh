@@ -15,7 +15,7 @@
         store.isLoading = true;
         axios.get(endpoint).then(res => {
         store.pokemons = res.data.docs.map(pokemon => {
-          console.log(res.data)
+          
           return {
             number: pokemon.number,
             imageUrl: pokemon.imageUrl,
@@ -25,9 +25,11 @@
             id: pokemon._id
 
           }
-
-          
         })
+
+        store.pagination = res.data
+        console.log(store.pagination)
+
       }).then(() => {
         store.isLoading = false;
       })
@@ -37,7 +39,6 @@
     },
     created() {
       this.fetchPokemon()
-      
     }
   }
 </script>

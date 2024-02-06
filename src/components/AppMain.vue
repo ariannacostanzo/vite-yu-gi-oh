@@ -11,6 +11,12 @@ import {store} from '../assets/data/store.js'
     },
     components: {
       PokemonCards, LoadingButton
+    },
+    methods: {
+      nextPage() {
+        console.log('prossima pagina')
+       
+      }
     }
   }
 </script>
@@ -27,7 +33,7 @@ import {store} from '../assets/data/store.js'
           <PokemonCards/> 
         </div>
 
-        <LoadingButton v-if="!store.isLoading"/>
+        <LoadingButton v-if="!store.isLoading" @click="nextPage"/>
       </div>
       
     </main>
