@@ -41,8 +41,6 @@
     &:hover {
         translate: 0 -10px;
     }
-    
-    
 
     .pokemon-img-container {
         width: 236.63px;

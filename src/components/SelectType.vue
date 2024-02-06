@@ -29,7 +29,7 @@
 </script>
 
 <template>
-  <select>
+  <select @change="console.log('funziona')">
     <option value="All">All</option>
     <option v-for="pokemonType in pokemonTypes" :value="pokemonType">{{ pokemonType }}</option>
   </select>

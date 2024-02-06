@@ -29,6 +29,8 @@ import {store} from '../assets/data/store.js'
       <div class="pokemon-container">
         <MainHeader/>
 
+        <p class="show-result-container">Showing <strong>{{ store.pagination.limit }}</strong> out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
+
         <LoadingBall v-if="store.isLoading" />
 
         <div v-else class="pokemon-cards-container">
@@ -51,9 +53,6 @@ import {store} from '../assets/data/store.js'
     max-width: 1400px;
     margin: 0 auto;
   }
-
- 
-
   .pokemon-container {
     margin:  auto;
     padding: 2rem;
@@ -61,14 +60,15 @@ import {store} from '../assets/data/store.js'
     max-width: 1100px;
 
   }
-
   .pokemon-cards-container {
     display: flex;
     flex-wrap: wrap;
     background-color: #f2f2f2;
   }
 
-  
+  .show-result-container {
+    margin-bottom: 1rem;
+  }
 
 
 </style>
