@@ -1,4 +1,5 @@
 <script>
+  import {store} from '../assets/data/store.js'
   export default {
     name: 'SelectType',
     data() {
@@ -26,7 +27,14 @@
             typeSelected: 'All'
         }
     },
-    emits: ['type-selected']
+    emits: ['type-selected'],
+    created() {
+        setTimeout(()=> {
+            console.log(store.pokemonTypes)
+            console.log(store.pokemonTypes[0])
+        }, 2000)
+       
+    }
   }
 </script>
 

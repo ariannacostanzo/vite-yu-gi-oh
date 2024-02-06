@@ -2,6 +2,7 @@
   import AppMain from './components/AppMain.vue';
   import MainHeader from './components/MainHeader.vue';
   const baseEndpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=8'
+  const basePokemonTypes = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/types1'
   import axios from 'axios';
   import {store} from './assets/data/store.js'
 
@@ -11,6 +12,7 @@
       AppMain, MainHeader
     },
     methods: {
+      //faccio una chiamata api e filtro le chiavi da prendere
       fetchPokemon(endpoint) {
         store.isLoading = true;
         axios.get(endpoint).then(res => {
@@ -29,25 +31,33 @@
 
           store.pagination = res.data
           // console.log(store.pagination)
-          console.log(store.pokemons)
 
         }).then(() => {
           store.isLoading = false;
         })
         
         },
+        //in base al tipo che mi arriva filtro i pokemon
       fetchPokemonType(pokemonType) {
-        console.log('funziona:' + pokemonType)
         const endpointType = `${baseEndpoint}&eq[type1]=${pokemonType}`
-        console.log(endpointType)
-        this.fetchPokemon(endpointType)
+        if (pokemonType === 'All') {
+          this.fetchPokemon(baseEndpoint)
+        } else {
+          this.fetchPokemon(endpointType)
 
-
+        }
+      },
+      //ottengo dall'api i tipi di pokemon
+      fetchTypes() {
+        axios.get(basePokemonTypes).then(res => {
+          store.pokemonTypes = res.data
+          console.log(store.pokemonTypes)
+        })
       }
-
     },
     created() {
       this.fetchPokemon(baseEndpoint)
+      this.fetchTypes()
     }
   }
 </script>
