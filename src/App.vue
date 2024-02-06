@@ -27,14 +27,17 @@
           }
         })
 
-        store.pagination = res.data
-        console.log(store.pagination)
+          store.pagination = res.data
+          console.log(store.pagination)
 
-      }).then(() => {
-        store.isLoading = false;
-      })
-      
-      },
+        }).then(() => {
+          store.isLoading = false;
+        })
+        
+        },
+      fetchPokemonType(pokemonType) {
+        console.log('funziona:' + pokemonType)
+      }
 
     },
     created() {
@@ -45,7 +48,7 @@
 
 <template>
   <div class="body">
-    <AppMain/>
+    <AppMain @type-selected="fetchPokemonType"/>
   </div>
 </template>
 

@@ -19,8 +19,11 @@ import {store} from '../assets/data/store.js'
         console.log('prossima pagina')
        
       },
-      
-    }
+      getType(pokemonType) {
+            this.$emit('type-selected', pokemonType)
+      }
+    },
+    emits: ['type-selected']
   }
 </script>
 
@@ -28,7 +31,7 @@ import {store} from '../assets/data/store.js'
     <main>
       
       <div class="pokemon-container">
-        <MainHeader/>
+        <MainHeader @type-selected="getType"/>
 
         <p class="show-result-container">Showing <strong>{{ store.pagination.limit }}</strong> out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
 
