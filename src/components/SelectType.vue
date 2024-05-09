@@ -4,37 +4,22 @@
     name: 'SelectType',
     data() {
         return {
-            pokemonTypes: [
-                "Bug",
-                "Dark",
-                "Dragon",
-                "Electric",
-                "Fairy",
-                "Fighting",
-                "Fire",
-                "Flying",
-                "Ghost",
-                "Grass",
-                "Ground",
-                "Ice",
-                "Normal",
-                "Poison",
-                "Psychic",
-                "Rock",
-                "Steel",
-                "Water"
-            ],
-            typeSelected: 'All'
+            optionSelected: 'All'
         }
     },
-    emits: ['type-selected']
+    emits: ['option-selected'],
+    props: {
+      options: Array,
+      defaultLabel: String,
+      type: String
+    }
   }
 </script>
 
 <template>
-  <select @change="$emit('type-selected', typeSelected)" v-model="typeSelected">
-    <option value="All">All</option>
-    <option v-for="pokemonType in pokemonTypes" :value="pokemonType">{{ pokemonType }}</option>
+  <select @change="$emit('option-selected', optionSelected)" v-model="optionSelected">
+    <option :value="defaultLabel">{{ defaultLabel }}</option>
+    <option v-for="(option, i) in options" :key="i" :value="option">{{ option }}</option>
   </select>
 </template>
 

@@ -1,7 +1,13 @@
 <script>
   import SelectType from './SelectType.vue';
+  import {store} from '../assets/data/store.js'
   export default {
     name: 'MainHeader',
+    data() {
+        return {
+            store,
+        }
+    },
     components: {
         SelectType
     },
@@ -13,7 +19,12 @@
 <template>
     <div>
         <h1>Pokédex</h1>
-        <SelectType @type-selected="$emit('type-selected', $event)" />
+        <div>
+            <SelectType :options="store.pokemonTypes" :default-label="'All'"
+                @option-selected="$emit('type-selected', $event)" :type="'firstType'" />
+            <SelectType :options="store.pokemonTypes" :default-label="'All'"
+                @option-selected="$emit('type-selected', $event)" :type="'secondType'" />
+        </div>
     </div>
 </template>
 

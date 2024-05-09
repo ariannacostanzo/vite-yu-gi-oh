@@ -12,12 +12,12 @@
 
 <template>
 
-  <div v-for="pokemon in store.pokemons" :key="pokemon.id" class="pokemon-card">
+  <div v-for="(pokemon, i) in store.pokemons" :key="pokemon.id" class="pokemon-card">
         <figure class="pokemon-img-container">
             <img :src="pokemon.imageUrl" :alt="pokemon.name" class="pokemon-img">
         </figure>
         <div class="pokemon-info">
-            <p class="pokemon-number">N ° {{pokemon.number}}</p>
+            <p class="pokemon-number">N ° {{i+1}}</p>
             <h3 class="pokemon-name">{{ pokemon.name }}</h3>
             <span class="pokemon-type" :class="`bg${pokemon.type1}`">{{pokemon.type1}}</span>
             <span v-if="pokemon.type2" class="pokemon-type" :class="`bg${pokemon.type2}`">{{pokemon.type2}}</span>

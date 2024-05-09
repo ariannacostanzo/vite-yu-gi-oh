@@ -19,23 +19,27 @@ import {store} from '../assets/data/store.js'
 </script>
 
 <template>
-    <main>
-      
-      <div class="pokemon-container">
-        <MainHeader @type-selected="$emit('type-selected', $event)"/>
+  <main>
 
-        <p class="show-result-container">Showing <strong>{{ store.pagination.limit }}</strong> out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
+    <div class="pokemon-container">
+      <MainHeader @type-selected="$emit('type-selected', $event)" />
 
-        <LoadingBall v-if="store.isLoading" />
+      <p v-show="!store.isLoading" class="show-result-container">Showing <strong>{{ store.pagination.limit }}</strong>
+        out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
 
-        <div v-else class="pokemon-cards-container">
-          <PokemonCards/> 
-        </div>
 
-        <LoadingButton v-if="!store.isLoading" @load-button-clicked="$emit('load-button-clicked')"/>
+      <LoadingBall v-if="store.isLoading" />
+      <div class="pokemon-cards-container">
+        <PokemonCards />
       </div>
-      
-    </main>
+
+
+
+
+      <LoadingButton v-show="!store.isLoading" @load-button-clicked="$emit('load-button-clicked')" />
+    </div>
+
+  </main>
 </template>
 
 <style lang="scss" scoped>
