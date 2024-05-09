@@ -24,13 +24,19 @@ import {store} from '../assets/data/store.js'
     <div class="pokemon-container">
       <MainHeader @type-selected="$emit('type-selected', $event)" />
 
-      <p v-show="!store.isLoading" class="show-result-container">Showing <strong>{{ store.pagination.limit }}</strong>
+      <p v-show="!store.isLoading && store.pokemons.length > 0" class="show-result-container">Showing <strong>{{
+          store.pagination.limit }}</strong>
         out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
 
 
       <LoadingBall v-if="store.isLoading" />
-      <div class="pokemon-cards-container">
+      <div v-if="store.pokemons.length > 0" class="pokemon-cards-container">
         <PokemonCards />
+      </div>
+      <div v-else>
+        <h1>
+          There are no pokemons with these types
+        </h1>
       </div>
 
 

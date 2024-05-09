@@ -15,12 +15,19 @@
       return {
         perPage: 16,
         scrollPosition: 0,
-        currentPage: 1
+        currentPage: 1,
+        currentEndpoint: null,
+        firstType: '',
+        secondType: '',
+        initialEndpoint: baseEndpoint
       }
     },
     computed: {
       pagePosition() {
         return window.scrollY
+      },
+      getEndpoint() {
+        return this.initialEndpoint + this.perPage
       }
     },
     methods: {
@@ -54,13 +61,28 @@
           })
         
         },
-        filterPokemonType(pokemonType) {
-          // const endpoint = pokemonType === 'All' ? baseEndpoint : `${baseEndpoint}${this.perPage}&eq[type1]=${pokemonType}`
-          let endpoint = `${baseEndpoint}${this.perPage}`
-          if (pokemonType !== 'All') {
-            endpoint += `&eq[type1]=${pokemonType}`
+        filterPokemonType(options) {
+          const object = options;
+          const type = object.type;
+          const typeSelected = object.optionSelected
+          // let endpoint = `${baseEndpoint}${this.perPage}`
+          if (type === 'firstType') {
+            if (typeSelected !== 'All') {
+              this.firstType =  `&eq[type1]=${typeSelected}`
+            } else {
+              this.firstType = ''
+            }
           }
-          this.fetchPokemon(endpoint)
+          if (type === 'secondType') {
+            if (typeSelected !== 'All') {
+              this.secondType = `&eq[type2]=${typeSelected}`
+            } else {
+              this.secondType = ''
+            }
+          }
+          
+          this.currentEndpoint = this.getEndpoint + this.firstType + this.secondType
+          this.fetchPokemon(this.currentEndpoint)
         },
         //ottengo dall'api i tipi di pokemon
         fetchTypes() {

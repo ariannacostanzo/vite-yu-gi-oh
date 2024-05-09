@@ -19,9 +19,11 @@
 <template>
     <div>
         <h1>Pokédex</h1>
-        <div>
+        <div class="select-container">
+            <label> First Type:</label>
             <SelectType :options="store.pokemonTypes" :default-label="'All'"
                 @option-selected="$emit('type-selected', $event)" :type="'firstType'" />
+            <label> Second Type:</label>
             <SelectType :options="store.pokemonTypes" :default-label="'All'"
                 @option-selected="$emit('type-selected', $event)" :type="'secondType'" />
         </div>
@@ -34,9 +36,14 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-    }
-  
-    h1 {
         margin-bottom: 2rem;
     }
+
+    .select-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+  
+    
 </style>

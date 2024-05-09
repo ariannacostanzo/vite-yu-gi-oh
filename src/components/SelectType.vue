@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <select @change="$emit('option-selected', optionSelected)" v-model="optionSelected">
+  <select @change="$emit('option-selected', {optionSelected, type})" v-model="optionSelected">
     <option :value="defaultLabel">{{ defaultLabel }}</option>
     <option v-for="(option, i) in options" :key="i" :value="option">{{ option }}</option>
   </select>
