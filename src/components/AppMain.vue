@@ -3,6 +3,7 @@ import PokemonCards from '../components/PokemonCards.vue';
 import LoadingButton from '../components/LoadingButton.vue';
 import LoadingBall from '../components/LoadingBall.vue';
 import MainHeader from '../components/MainHeader.vue';
+import AdvancedResearch from '../components/AdvancedResearch.vue';
 import {store} from '../assets/data/store.js'
   export default {
     name: 'AppMain',
@@ -12,7 +13,7 @@ import {store} from '../assets/data/store.js'
       }
     },
     components: {
-      PokemonCards, LoadingButton, LoadingBall, MainHeader
+      PokemonCards, LoadingButton, LoadingBall, MainHeader, AdvancedResearch
     },
     emits: ['type-selected', 'load-button-clicked']
   }
@@ -20,12 +21,12 @@ import {store} from '../assets/data/store.js'
 
 <template>
   <main>
-
+    <AdvancedResearch/>
     <div class="pokemon-container">
       <MainHeader @type-selected="$emit('type-selected', $event)" />
 
       <p v-show="!store.isLoading && store.pokemons.length > 0" class="show-result-container">Showing <strong>{{
-          store.pagination.limit }}</strong>
+          store.pokemons.length }}</strong>
         out of <strong>{{ store.pagination.totalDocs }}</strong> </p>
 
 
@@ -33,7 +34,7 @@ import {store} from '../assets/data/store.js'
       <div v-if="store.pokemons.length > 0" class="pokemon-cards-container">
         <PokemonCards />
       </div>
-      <div v-else>
+      <div v-if="!store.isLoading && store.pokemons.length <= 0">
         <h1>
           There are no pokemons with these types
         </h1>
@@ -41,8 +42,8 @@ import {store} from '../assets/data/store.js'
 
 
 
-
-      <LoadingButton v-show="!store.isLoading" @load-button-clicked="$emit('load-button-clicked')" />
+      <LoadingButton v-if="!store.isLoading && store.pagination.hasNextPage"
+        @load-button-clicked="$emit('load-button-clicked')" />
     </div>
 
   </main>
@@ -63,12 +64,14 @@ import {store} from '../assets/data/store.js'
     padding: 2rem;
     border-radius: 10px;
     max-width: 1100px;
+    min-height: 100vh;
 
   }
   .pokemon-cards-container {
     display: flex;
     flex-wrap: wrap;
     background-color: #f2f2f2;
+    margin-bottom: 2rem;
   }
 
   .show-result-container {

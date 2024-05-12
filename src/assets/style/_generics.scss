@@ -2,11 +2,16 @@
 
 // reset 
 
+@font-face {
+  font-family: 'Flexo regular';
+  src: url('../font/Flexo-Regular.ttf');
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Flexo regular';
 }
 
 //Generics
@@ -17,6 +22,11 @@ body {
     font-family: 'Roboto Flex Variable', sans-serif;
     
     
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
 }
 
 //utils

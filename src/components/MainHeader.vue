@@ -17,6 +17,7 @@
 </script>
 
 <template>
+    
     <div>
         <h1>Pokédex</h1>
         <div class="select-container">
@@ -32,18 +33,20 @@
 
 <style lang="scss" scoped>
 
-    div {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-    }
 
-    .select-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+
+div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
   
     
 </style>

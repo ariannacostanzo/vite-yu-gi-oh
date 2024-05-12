@@ -50,7 +50,6 @@
           }
         })
           store.pagination = res.data
-          // console.log(store.pagination)
 
           this.scrollPosition = window.scrollY
           window.scrollTo(0, this.scrollPosition)
@@ -62,6 +61,7 @@
         
         },
         filterPokemonType(options) {
+          this.currentPage = 1
           const object = options;
           const type = object.type;
           const typeSelected = object.optionSelected
@@ -89,6 +89,7 @@
           axios.get(basePokemonTypes).then(res => {
             store.pokemonTypes = res.data
           }).catch(err => {console.log(err)}).then()
+
         },
 
         //quando clicco aggiungo tot pokemon in più
@@ -96,7 +97,7 @@
           this.currentPage++
           let page = `&page=${this.currentPage}`
           
-          axios.get(`${ baseEndpoint }${ this.perPage }${page}`).then(res => {
+          axios.get(`${ this.currentEndpoint }${page}`).then(res => {
             store.isLoading = true;
             const newPokemon = res.data.docs.map(pokemon => {
 
@@ -109,7 +110,9 @@
                 id: pokemon._id
 
               }
+
             })
+            store.pagination = res.data
             newPokemon.forEach(pokemon => {
               store.pokemons.push(pokemon)
             })
@@ -133,7 +136,8 @@
     },
     created() {
 
-      this.fetchPokemon(`${baseEndpoint}${this.perPage}`)
+      this.currentEndpoint = `${baseEndpoint}${this.perPage}`
+      this.fetchPokemon(this.currentEndpoint)
       this.fetchTypes()
       
     },
@@ -158,3 +162,5 @@ fare un filtro per cercare i pokemon, in base al nome, al tipo, e numero;
  fare che quando clicco load more carica altri pokemon, usare la paginazione, pagina attuale e successiva
 da sistemare il load more-->
  
+
+<!-- sistemare il button load more quando premo un altro tipo  -->

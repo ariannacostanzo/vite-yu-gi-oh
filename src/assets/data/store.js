@@ -4,5 +4,6 @@ export const store = reactive({
     pokemons: [],
     isLoading: false,
     pagination: [],
-    pokemonTypes: []
+    pokemonTypes: [],
+    pokemonAbilities: []
 })
